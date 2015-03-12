@@ -1,0 +1,6 @@
+[submodule "vim/bundle/julia-vim"]
+	path = vim/bundle/julia-vim
+	url = https://github.com/JuliaLang/julia-vim.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
