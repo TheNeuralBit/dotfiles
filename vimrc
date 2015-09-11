@@ -3,8 +3,7 @@ set autoindent
 set smartindent
 
 set ic
-set ts=4
-
+set ts=4 
 set showmatch
 
 set softtabstop=4
@@ -20,19 +19,20 @@ set noeb vb t_vb=
 set ruler
 
 set nu
-set rnu
+"set rnu
 
 set foldmethod=syntax
-set foldnestmax=1
-
-syntax enable
-set background=dark
-colorscheme solarized
+set foldnestmax=3
 
 filetype off
 call pathogen#infect()
 filetype plugin indent on
 
+syntax enable
+set background=dark
+
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 " Remove all trailing white space from python files on save.
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -67,13 +67,22 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+"set colorcolumn=85
 
 " ;wq is valid damnit!
 nnoremap ; :
 
 " save when I lose focus
 au FocusLost * :wa
+
+" Turn on code folding for JavaScript
+au FileType javascript call JavaScriptFold()
+au FileType javascript set softtabstop=2
+au FileType javascript set tabstop=2
+au FileType javascript set shiftwidth=2
+au FileType html set softtabstop=2
+au FileType html set tabstop=2
+au FileType html set shiftwidth=2
 
 " Make j and k move within a word-wrapped line
 nnoremap j gj
@@ -85,7 +94,24 @@ vnoremap k gk
 let g:slime_target = "tmux"
 
 " NERDTree config
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Syntastic newbie settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Syntastic checkers
+let g:syntastic_html_checkers = ['validator']
+
+" airline - turn on powerline fonts
+let g:airline_powerline_fonts = 1
+set laststatus=2
