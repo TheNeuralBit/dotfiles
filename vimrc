@@ -31,8 +31,7 @@ filetype plugin indent on
 syntax enable
 set background=dark
 
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+colorscheme solarized
 
 " Remove all trailing white space from python files on save.
 autocmd BufWritePre *.py :%s/\s\+$//e
