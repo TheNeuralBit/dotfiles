@@ -110,6 +110,7 @@ let g:syntastic_check_on_wq = 0
 
 " Syntastic checkers
 let g:syntastic_html_checkers = ['validator']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " airline - turn on powerline fonts
 set encoding=utf-8
