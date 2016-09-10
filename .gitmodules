@@ -34,3 +34,6 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "fonts/powerline"]
+	path = fonts/powerline
+	url = git@github.com:powerline/fonts.git
