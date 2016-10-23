@@ -3,7 +3,7 @@ set autoindent
 set smartindent
 
 set ic
-set ts=4 
+set ts=4
 set showmatch
 
 set softtabstop=4
@@ -111,6 +111,8 @@ let g:syntastic_check_on_wq = 0
 " Syntastic checkers
 let g:syntastic_html_checkers = ['validator']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " airline - turn on powerline fonts
 set encoding=utf-8
@@ -118,3 +120,15 @@ let g:airline_powerline_fonts = 1
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+let g:ycm_extra_conf_globlist = ['~/working_dir/*']
+
+fun! TrimWhitespace()
+    let l:save_cursor = getpos('.')
+    %s/\s\+$//e
+    call setpos('.', l:save_cursor)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
