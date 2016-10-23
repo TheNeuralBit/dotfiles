@@ -46,3 +46,12 @@
 [submodule "vim/bundle/tern_for_vim"]
 	path = vim/bundle/tern_for_vim
 	url = git@github.com:ternjs/tern_for_vim.git
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "vim/bundle/tsuquyomi"]
+	path = vim/bundle/tsuquyomi
+	url = git@github.com:Quramy/tsuquyomi.git
+[submodule "vim/bundle/vimproc.vim"]
+	path = vim/bundle/vimproc.vim
+	url = git@github.com:Shougo/vimproc.vim.git
