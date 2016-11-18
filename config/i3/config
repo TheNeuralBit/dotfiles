@@ -6,7 +6,7 @@
 #
 
 smart_gaps on
-gaps inner 10
+gaps inner 8
 new_window 1pixel
 
 # i3 config file (v4)
