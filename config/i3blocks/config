@@ -1,0 +1,72 @@
+command=/usr/libexec/i3blocks/$BLOCK_NAME
+separator=true
+separator_block_width=10
+
+#[mediaplayer]
+#command=$HOME/scripts/mediaplayer
+#label=
+#instance=spotify
+#interval=5
+#signal=10
+##background=#00e461 <-- spotify green
+##border=#ebdbb2
+#separator=true
+#min_width=700
+#
+#[updates]
+#command=$HOME/scripts/updates.sh
+#interval=60
+#signal=2
+##urgent=true
+##border=#263238
+
+#[window]
+#command=xtitle -s
+#interval=persist
+#separator=true
+#separator_block_width=45
+#border=#ebdbb2
+
+[volume]
+label=  
+command=$HOME/.config/i3blocks/scripts/volume.sh
+interval=1
+markup=pango
+#border=#263238
+
+[brightness]
+label=  
+command=printf "%.0f " $HOME/scripts/brightness.py
+interval=10
+signal=2
+#border=#263238
+
+#[temperature]
+#label= 
+#command=echo "$($HOME/scripts/temperature.sh 'Core 0') $($HOME/scripts/temperature.sh 'Core 1') $($HOME/scripts/temperature.sh 'Core 2') $($HOME/scripts/temperature.sh 'Core 3') "
+#interval=5
+##border=#263238
+
+[wireless]
+label=  
+command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r) "
+interval=2
+#border=#263238
+
+[battery]
+command=$HOME/.config/i3blocks/scripts/battery.sh
+interval=60
+label=
+#border=#263238
+
+[date]
+command=echo "`date +'%d %b'`"
+interval=30
+label=
+#border=#263238
+
+[time]
+command=echo "`date +'%H:%M'`"
+interval=2
+label=
+#border=#263238
