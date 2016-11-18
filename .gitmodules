@@ -46,3 +46,24 @@
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = git@github.com:klen/python-mode.git
+[submodule "vim/bundle/ag.vim"]
+	path = vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim.git
+[submodule "vim/bundle/vim-action-ag"]
+	path = vim/bundle/vim-action-ag
+	url = https://github.com/Chun-Yang/vim-action-ag.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/bundle/tern_for_vim"]
+	path = vim/bundle/tern_for_vim
+	url = git@github.com:ternjs/tern_for_vim.git
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
+[submodule "vim/bundle/tsuquyomi"]
+	path = vim/bundle/tsuquyomi
+	url = git@github.com:Quramy/tsuquyomi.git
+[submodule "vim/bundle/vimproc.vim"]
+	path = vim/bundle/vimproc.vim
+	url = git@github.com:Shougo/vimproc.vim.git
