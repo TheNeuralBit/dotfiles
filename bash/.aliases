@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
+# git
+alias gs="git status"
+alias gl="git log --graph --decorate"
