@@ -7,3 +7,8 @@ to set up bash and vim config:
 ```
 $ stow bash vim
 ```
+
+Hacky self-installing script:
+```
+$ bash <(curl https://raw.githubusercontent.com/TheNeuralBit/dotfiles/master/init.sh)
+```
