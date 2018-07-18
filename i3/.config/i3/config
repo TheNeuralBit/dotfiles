@@ -14,6 +14,7 @@ new_window 1pixel
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $super Mod4
 
 # colors
 set $base00 #101218
@@ -113,6 +114,16 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+### Screen locking
+# Define command that locks the screen and put the monitor in standby
+set $lock i3lock -c 000000 && xset dpms force off
+
+# add screen lock shortcut
+bindsym $super+l exec $lock
+
+# Automatically lock screen after 1 minute
+exec --no-startup-id xautolock -time 1 -locker "$lock" -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING SCREEN IN 30 SECONDS'"
 
 # To copy more font-awesome icons:
 # http://fontawesome.io/cheatsheet/
