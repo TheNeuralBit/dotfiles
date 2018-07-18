@@ -1,3 +1,6 @@
+" Don't bother with vi compatibility
+set nocompatible
+
 set t_Co=256
 set autoindent
 set smartindent
@@ -11,7 +14,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set nocompatible
 set modelines=0
 
 set noeb vb t_vb=
@@ -25,24 +27,16 @@ set foldmethod=syntax
 set foldnestmax=3
 
 filetype off
-call pathogen#infect()
-filetype plugin indent on
 
 syntax enable
 set background=dark
 
 let g:hybrid_use_Xresources = 1
-colorscheme monokai
+colorscheme molokai
 
-" Remove all trailing white space from python files on save.
-autocmd BufWritePre *.py :%s/\s\+$//e
-
-" MATLAB
-source $VIMRUNTIME/macros/matchit.vim
-filetype indent on
-
-autocmd BufEnter *.m    compiler mlint
-
+"""""""""""""""""
+" Miscellaneous "
+"""""""""""""""""
 let mapleader = ","
 
 " exit insert mode with jj
@@ -67,7 +61,10 @@ vnoremap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-"set colorcolumn=85
+
+" visual cues
+set colorcolumn=80
+set cursorline
 
 " ;wq is valid damnit!
 nnoremap ; :
@@ -90,16 +87,38 @@ vnoremap j gj
 nnoremap k gk
 vnoremap k gk
 
-" Make slime use tmux
-let g:slime_target = "tmux"
+" Trim trailing whitespace before saving
+fun! TrimWhitespace()
+    let l:save_cursor = getpos('.')
+    %s/\s\+$//e
+    call setpos('.', l:save_cursor)
+endfun
 
-" NERDTree config
-map <C-n> :NERDTreeTabsToggle<CR>
+autocmd BufWritePre * :call TrimWhitespace()
+
+""""""""""""""""""""""""""""""
+" Load plugins with vim-plug "
+""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+
+"""""""""""""""""
+" Plugin config "
+"""""""""""""""""
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Syntastic newbie settings
+" Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -109,27 +128,35 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Syntastic checkers
 let g:syntastic_html_checkers = ['validator']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-" airline - turn on powerline fonts
+" Airline
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
+" Ctrl+P
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+" YouCompleteMe "
 let g:ycm_extra_conf_globlist = ['~/working_dir/*']
 
-fun! TrimWhitespace()
-    let l:save_cursor = getpos('.')
-    %s/\s\+$//e
-    call setpos('.', l:save_cursor)
-endfun
 
-autocmd BufWritePre * :call TrimWhitespace()
+"""""""""""""""""""""""
+" Source local config "
+"""""""""""""""""""""""
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
+call SourceIfExists('~/.vimrc.local')
+
+" Always do this last
+filetype plugin indent on
