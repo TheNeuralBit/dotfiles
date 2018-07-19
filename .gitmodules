@@ -1,66 +1,6 @@
-[submodule "vim/bundle/julia-vim"]
-	path = vim/.vim/bundle/julia-vim
-	url = https://github.com/JuliaLang/julia-vim.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
 	url = git@github.com:Anthony25/gnome-terminal-colors-solarized.git
-[submodule "vim/bundle/vim-javascript-syntax"]
-	path = vim/.vim/bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
-[submodule "vim/bundle/vim-hybrid"]
-	path = vim/.vim/bundle/vim-hybrid
-	url = git@github.com:w0ng/vim-hybrid.git
-[submodule "vim/bundle/vim-autoclose"]
-	path = vim/.vim/bundle/vim-autoclose
-	url = git@github.com:Townk/vim-autoclose.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/.vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-nerdtree-tabs"]
-	path = vim/.vim/bundle/vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "vim/bundle/vim-monokai"]
-	path = vim/.vim/bundle/vim-monokai
-	url = git@github.com:sickill/vim-monokai.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/.vim/bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
 [submodule "fonts/powerline"]
 	path = fonts/powerline
 	url = git@github.com:powerline/fonts.git
-[submodule "vim/bundle/codi.vim"]
-	path = vim/.vim/bundle/codi.vim
-	url = git@github.com:metakirby5/codi.vim.git
-[submodule "vim/bundle/python-mode"]
-	path = vim/.vim/bundle/python-mode
-	url = git@github.com:klen/python-mode.git
-[submodule "vim/bundle/ag.vim"]
-	path = vim/.vim/bundle/ag.vim
-	url = https://github.com/rking/ag.vim.git
-[submodule "vim/bundle/vim-action-ag"]
-	path = vim/.vim/bundle/vim-action-ag
-	url = https://github.com/Chun-Yang/vim-action-ag.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/.vim/bundle/ctrlp
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "vim/bundle/tern_for_vim"]
-	path = vim/.vim/bundle/tern_for_vim
-	url = git@github.com:ternjs/tern_for_vim.git
-[submodule "vim/bundle/typescript-vim"]
-	path = vim/.vim/bundle/typescript-vim
-	url = git@github.com:leafgarland/typescript-vim.git
-[submodule "vim/bundle/tsuquyomi"]
-	path = vim/.vim/bundle/tsuquyomi
-	url = git@github.com:Quramy/tsuquyomi.git
-[submodule "vim/bundle/vimproc.vim"]
-	path = vim/.vim/bundle/vimproc.vim
-	url = git@github.com:Shougo/vimproc.vim.git
