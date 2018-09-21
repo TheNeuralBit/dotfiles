@@ -12,3 +12,13 @@ Hacky self-installing script:
 ```
 $ bash <(curl https://raw.githubusercontent.com/TheNeuralBit/dotfiles/master/init.sh)
 ```
+
+# Dependencies
+xautolock, i3lock
+
+``` sh
+$ sudo apt install i3lock xautolock
+```
+
+cquery
+[Build Instructions](https://github.com/cquery-project/cquery/wiki/Building-cquery)
