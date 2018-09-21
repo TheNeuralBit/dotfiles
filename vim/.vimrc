@@ -21,7 +21,7 @@ set noeb vb t_vb=
 set ruler
 
 set nu
-"set rnu
+set rnu
 
 set foldmethod=syntax
 set foldnestmax=3
