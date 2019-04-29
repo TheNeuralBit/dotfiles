@@ -12,9 +12,12 @@ compinit
 
 source ~/antigen.zsh
 antigen use oh-my-zsh
-antigen theme candy
+antigen theme romkatv/powerlevel10k
 antigen bundle vi-mode
 antigen apply
+
+# purepower powerlevel10k config
+source ~/.purepower
 
 if [[ -r ~/.zshrc.local ]]; then
     source ~/.zshrc.local
