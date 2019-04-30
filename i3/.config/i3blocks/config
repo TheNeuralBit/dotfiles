@@ -1,4 +1,4 @@
-command=/usr/libexec/i3blocks/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
 separator=true
 separator_block_width=10
 
@@ -28,10 +28,11 @@ separator_block_width=10
 #border=#ebdbb2
 
 [volume]
-label=  
-command=$HOME/.config/i3blocks/scripts/volume.sh
-interval=1
+label=♪
+#interval=3
 markup=pango
+interval=once
+signal=10
 #border=#263238
 
 [brightness]
@@ -47,9 +48,12 @@ signal=2
 #interval=5
 ##border=#263238
 
-[wireless]
+[iface]
+interval=10
+color=#00FF00
+
+[wifi]
 label=  
-command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r) "
 interval=2
 #border=#263238
 
@@ -59,14 +63,11 @@ interval=60
 label=
 #border=#263238
 
-[date]
-command=echo "`date +'%d %b'`"
-interval=30
-label=
-#border=#263238
+[cpu_usage]
+label=CPU
+interval=10
+min_width=CPU: 100.00%
 
 [time]
-command=echo "`date +'%H:%M'`"
-interval=2
-label=
-#border=#263238
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=5
