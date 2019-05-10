@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
