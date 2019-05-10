@@ -234,10 +234,19 @@ bar {
 #   }
 }
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+set $volume_up --no-startup-id pactl set-sink-volume 0 +5%; exec pkill -RTMIN+10 i3blocks
+set $volume_down --no-startup-id pactl set-sink-volume 0 -5%; exec pkill -RTMIN+10 i3blocks
+set $mute --no-startup-id pactl set-sink-mute 0 toggle; exec pkill -RTMIN+10 i3blocks
+bindsym $mod+shift+u exec $volume_up
+bindsym $mod+shift+d exec $volumne_down
+bindsym $mod+shift+m exec $mute
 bindsym XF86Display exec ~/.config/i3/scripts/screens.sh
+# volume
+bindsym XF86AudioMute exec $mute
+bindsym XF86AudioRaiseVolume exec $volume_up
+bindsym XF86AudioLowerVolume exec $volume_down
+
+
 
 exec compton -f
 exec_always feh --randomize --bg-fill ~/.config/i3/wallpapers/*
