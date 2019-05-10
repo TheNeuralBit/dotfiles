@@ -238,7 +238,7 @@ set $volume_up --no-startup-id pactl set-sink-volume 0 +5%; exec pkill -RTMIN+10
 set $volume_down --no-startup-id pactl set-sink-volume 0 -5%; exec pkill -RTMIN+10 i3blocks
 set $mute --no-startup-id pactl set-sink-mute 0 toggle; exec pkill -RTMIN+10 i3blocks
 bindsym $mod+shift+u exec $volume_up
-bindsym $mod+shift+d exec $volumne_down
+bindsym $mod+shift+d exec $volume_down
 bindsym $mod+shift+m exec $mute
 bindsym XF86Display exec ~/.config/i3/scripts/screens.sh
 # volume
