@@ -66,10 +66,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -78,10 +78,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -90,9 +90,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+backslash split h
 
 # split in vertical orientation
+bindsym $mod+dash split v
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -139,28 +140,45 @@ set $workspace9 9
 set $workspace10 10
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace number $workspace1
+bindsym $mod+2 workspace number $workspace2
+bindsym $mod+3 workspace number $workspace3
+bindsym $mod+4 workspace number $workspace4
+bindsym $mod+5 workspace number $workspace5
+bindsym $mod+6 workspace number $workspace6
+bindsym $mod+7 workspace number $workspace7
+bindsym $mod+8 workspace number $workspace8
+bindsym $mod+9 workspace number $workspace9
+bindsym $mod+0 workspace number $workspace10
+
+# bind some workspaces to monitors
+set $secondarymonitor DP-0
+set $primarymonitor DP-6.8
+workspace $workspace1 output $secondarymonitor
+workspace $workspace2 output $secondarymonitor
+workspace $workspace3 output $secondarymonitor
+workspace $workspace4 output $secondarymonitor
+workspace $workspace5 output $secondarymonitor
+workspace $workspace6 output $primarymonitor
+workspace $workspace7 output $primarymonitor
+workspace $workspace8 output $primarymonitor
+workspace $workspace9 output $primarymonitor
+workspace $workspace10 output $primarymonitor
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace number $workspace1
+bindsym $mod+Shift+2 move container to workspace number $workspace2
+bindsym $mod+Shift+3 move container to workspace number $workspace3
+bindsym $mod+Shift+4 move container to workspace number $workspace4
+bindsym $mod+Shift+5 move container to workspace number $workspace5
+bindsym $mod+Shift+6 move container to workspace number $workspace6
+bindsym $mod+Shift+7 move container to workspace number $workspace7
+bindsym $mod+Shift+8 move container to workspace number $workspace8
+bindsym $mod+Shift+9 move container to workspace number $workspace9
+bindsym $mod+Shift+0 move container to workspace number $workspace10
+
+# Shortcut to rename a workspace
+bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -177,10 +195,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
