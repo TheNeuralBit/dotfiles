@@ -105,10 +105,23 @@ Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+
+""" LSP Plugins
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+ " dependency of tsuquyomi
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+
+""" Typescript plugins
+" TSServer client (go-to-definition, rename, etc..)
+Plug 'Quramy/tsuquyomi',           {'for': 'typescript'}
+" TS Syntax highlight
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+" TS/JS indenting
+Plug 'jason0x43/vim-js-indent',    {'for': ['javascript', 'typescript']}
 
 call plug#end()
 
