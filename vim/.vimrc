@@ -26,6 +26,9 @@ set rnu
 set foldmethod=syntax
 set foldnestmax=3
 
+" Show previews when tab-completing :Commands
+set wildmenu
+
 filetype off
 
 syntax enable
@@ -105,6 +108,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 """ LSP Plugins
 Plug 'prabirshrestha/asyncomplete.vim'
