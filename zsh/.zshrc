@@ -27,3 +27,7 @@ fi
 export KEYTIMEOUT=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# Add user@host to purepower rprompt
+custom_rprompt() { echo "$(whoami)@$(hostname -s)" }
