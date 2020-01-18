@@ -31,3 +31,7 @@ export KEYTIMEOUT=1
 
 # Add user@host to purepower rprompt
 custom_rprompt() { echo "$(whoami)@$(hostname -s)" }
+
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

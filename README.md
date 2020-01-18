@@ -14,10 +14,11 @@ $ bash <(curl https://raw.githubusercontent.com/TheNeuralBit/dotfiles/master/ini
 ```
 
 # Dependencies
-xautolock, i3lock
+xautolock, i3lock, fzf
 
 ``` sh
-$ sudo apt install i3lock xautolock
+$ sudo pacman -S i3lock xautolock fzf
+$ sudo apt install i3lock xautolock fzf
 ```
 
 cquery
