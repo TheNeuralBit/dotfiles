@@ -35,7 +35,7 @@ syntax enable
 set background=dark
 
 let g:hybrid_use_Xresources = 1
-colorscheme molokai
+colorscheme solarized
 
 """""""""""""""""
 " Miscellaneous "
@@ -104,7 +104,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
@@ -113,10 +113,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 """ LSP Plugins
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'mattn/vim-lsp-settings'
 
  " dependency of tsuquyomi
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
@@ -129,6 +130,17 @@ Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 " TS/JS indenting
 Plug 'jason0x43/vim-js-indent',    {'for': ['javascript', 'typescript']}
 
+"Plug 'natebosch/vim-lsc'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+"Plug 'artur-shaik/vim-javacomplete2'
 call plug#end()
 
 
@@ -157,15 +169,25 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " vim-lsp
-if executable('cquery')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'cquery',
-      \ 'cmd': {server_info->['cquery']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'README'))},
-      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery_cache' },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'clangd',
+    \ 'cmd': {server_info->['clangd']},
+    \ 'whitelist': ['cpp'],
+    \})
+
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'IntelliJLanguageServer',
+    \ 'cmd': {server_info->['nc', 'localhost', '5800']},
+    \ 'whitelist': ['java'],
+    \})
+
+
+" auto-close preview window after completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Enable logging
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
 
 nnoremap gd :<C-u>LspDefinition<CR>
 nnoremap fu :<C-u>LspReferences<CR>
@@ -177,12 +199,13 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
-" Ctrl+P
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
 " YouCompleteMe "
 let g:ycm_extra_conf_globlist = ['~/working_dir/*']
 
+" deoplete
+let g:deoplete#enable_at_startup = 0
+
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 """""""""""""""""""""""
 " Source local config "
