@@ -33,5 +33,5 @@ export KEYTIMEOUT=1
 custom_rprompt() { echo "$(whoami)@$(hostname -s)" }
 
 # fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source ${HOME}/scripts/fzf-key-bindings.zsh
+source ${HOME}/scripts/fzf-completion.zsh
