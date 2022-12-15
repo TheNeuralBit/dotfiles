@@ -1,0 +1,14 @@
+# Aliases for AUR tasks
+aur_build () {
+    pushd ~/aur/$1
+    git fetch origin master && git merge origin/master && makepkg -sif && git clean -dfx
+    popd
+}
+
+checkupdates_aur () {
+    pacman -Qm | aur vercmp
+}
+
+system_update() {
+    sudo pacman -Sy archlinux-keyring && sudo pacman -Su && sudo checkservices
+}

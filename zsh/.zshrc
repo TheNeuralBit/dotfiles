@@ -17,12 +17,18 @@ antigen theme romkatv/powerlevel10k
 antigen bundle vi-mode
 antigen apply
 
+
 # purepower powerlevel10k config
 source ~/.purepower
 
 if [[ -r ~/.zshrc.local ]]; then
     source ~/.zshrc.local
 fi
+
+if [[ -r ~/.zshrc.arch ]]; then
+    source ~/.zshrc.arch
+fi
+
 
 export KEYTIMEOUT=1
 
